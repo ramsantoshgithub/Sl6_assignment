@@ -1,0 +1,32 @@
+# Initialize a dictionary to store the entered emails with their types
+email_dict = {"student": [], "professor": []}
+
+# Get the number of email addresses to be entered
+num_emails = int(input("Enter the number of email addresses you will be entering: "))
+
+# Loop to get each email address and categorize them
+for _ in range(num_emails):
+    email = input("Enter email address: ")
+    
+    # Check the type of email based on its domain
+    if email.endswith("@student.college.edu"):
+        email_dict["student"].append(email)
+    elif email.endswith("@prof.college.edu"):
+        email_dict["professor"].append(email)
+    else:
+        print(f"Invalid email address format: {email}")
+
+# Determine and print the result based on the entries
+num_students = len(email_dict["student"])
+num_professors = len(email_dict["professor"])
+
+if num_students == num_emails:
+    print("All addresses are student addresses.")
+elif num_professors == num_emails:
+    print("All addresses are professor addresses.")
+else:
+    print(f"There were some student addresses and some professor addresses.")
+    print(f"Student addresses: {num_students}, Professor addresses: {num_professors}")
+
+# Display the dictionary with the categorized emails
+print("Email Dictionary:", email_dict)
